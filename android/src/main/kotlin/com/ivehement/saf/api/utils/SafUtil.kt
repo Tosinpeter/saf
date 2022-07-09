@@ -83,6 +83,7 @@ internal class SafUtil(private val context: Context) {
 
     // Copy file to External Storage i.e. App's Package [files] folder. Skip copying when file is already present
     public fun syncCopyFileToExternalStorage(sourceUri: Uri, cacheDirectoryName: String, fileName: String): String? {
+        Log.i("SYNC:", "Already exists: " + sourceUri)
         var output: File
         if (!cacheDirectoryName.equals("")) {
             var dir: File = File(context.getExternalFilesDir(null).toString() + "/" + cacheDirectoryName)
@@ -131,6 +132,7 @@ internal class SafUtil(private val context: Context) {
 
             if (isKitKat) {
                 if (isExternalStorageDocument(uri)) {
+                     Log.i("SYNC:", "By Tosinpeter: " + uri)
                     val docId: String = DocumentsContract.getDocumentId(uri)
                     val split: List<String> = docId.split(":")
                     //val type: String = split[0]
