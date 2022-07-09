@@ -125,7 +125,7 @@ internal class SafUtil(private val context: Context) {
 
     // Convert URI to path string
     public fun getPath(uri: Uri): String {
-        Log.i("SYNC:", "Path tosinpeter: " + File(uri.getPath()))
+        Log.i("SYNC:", "Path tosinpeter: " + uri)
         try {
             // check here to KITKAT or new version
             val isKitKat: Boolean = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
